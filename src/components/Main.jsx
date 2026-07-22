@@ -1,5 +1,8 @@
 import image2 from "../assets/China.jpg";
+import travelData from "./Data";
+
 function Main() {
+  /* Commented out the hardcoded version:
   return (
     <article>
       <div>
@@ -19,5 +22,22 @@ function Main() {
       </div>
     </article>
   );
+  */
+  return (
+    <article>
+      {travelData.map((item) => (
+        <div key={item.id}>
+          <img src={item.img} alt={item.title} />
+          <div>
+            <a href={item.Url}>view Location Info</a>
+
+            <h1>{item.title}</h1>
+            <p>{item.date}</p>
+            <p>{item.description}</p>
+          </div>
+        </div>
+      ))}
+    </article>
+  )
 }
 export default Main;
